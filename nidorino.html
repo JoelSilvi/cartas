@@ -32,6 +32,7 @@
     let $opt3 = d.getElementById("opt3");
     let $parrafo = d.getElementById("parrafo");
     let $texto = d.getElementById("texto");
+    let $options = d.getElementById("options")
 
 
     const mover = () => {
@@ -43,9 +44,10 @@
         $img.innerHTML = $opt.appendChild($img);
         $parrafo.style.display = "none";
         $img.setAttribute("disabled", true)
-        $texto.innerHTML = `
-    <h2>🙌<i>Felicidades tu respuesta es correcta</i>🥳</h2>
-    `;
+        $texto.innerHTML =
+          `<h2>🙌<i>Felicidades tu respuesta es correcta</i>🥳</h2> `;
+        $options.style.pointerEvents = "none"
+
         // setTimeout(() => {
         //   window.location.href = "nidoran.html";
         // }, 3000);
@@ -55,9 +57,9 @@
     const incorrecto = () => {
       if ($opt3 || $opt2) {
         $texto.innerHTML =
-          `
-        <h2>😟<i>Incorrecto vuelve a intentarlo</i>😢</h2>
-      `
+          `<h2>😟<i>Incorrecto vuelve a intentarlo</i>😢</h2>`;
+        $options.style.pointerEvents = "none"
+
         setTimeout(() => {
           window.location.href = "nidorino.html"
         }, 2000);

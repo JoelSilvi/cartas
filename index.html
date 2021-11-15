@@ -32,7 +32,7 @@
     let $opt3 = d.getElementById("opt3");
     let $parrafo = d.getElementById("parrafo");
     let $texto = d.getElementById("texto");
-
+    let $options = d.getElementById("options")
 
     const mover = () => {
       if ($opt3) {
@@ -42,14 +42,10 @@
         $img.setAttribute("height", "196px");
         $img.innerHTML = $opt.appendChild($img);
         $parrafo.style.display = "none";
+        $texto.innerHTML =
+          `<h2>🙌<i>Felicidades tu respuesta es correcta</i>🥳</h2>`;
+        $options.style.pointerEvents = "none"
 
-        $texto.innerHTML = `
-    <h2>🙌<i>Felicidades tu respuesta es correcta</i>🥳</h2>
-    `;
-        // $opt3.attr("disabled", true)
-        // $opt3.disable()
-        // $opt3.ariaDisabled()
-        // d.getElementById("opt3").disable()
         setTimeout(() => {
           window.location.href = "casa.html";
         }, 3000);
@@ -59,15 +55,16 @@
     const incorrecto = () => {
       if ($opt1 || $opt2) {
         $texto.innerHTML =
-          `
-        <h2>😟<i>Incorrecto vuelve a intentarlo</i>😢</h2>
-      `
+          `<h2>😟<i>Incorrecto vuelve a intentarlo</i>😢</h2>`;
+        $options.style.pointerEvents = "none"
+
         setTimeout(() => {
           window.location.href = "index.html"
         }, 2000);
 
       }
     };
+
 
     $opt1.addEventListener("click", incorrecto, true);
     $opt2.addEventListener("click", incorrecto, true);
