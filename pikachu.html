@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <section id="main">
+    <article id="opt">
+      <p id="parrafo">Pikachu</p>
+    </article>
+    <p id="texto"></p>
+
+    <section id="options">
+      <article id="opt1"></article>
+      <article id="opt2"></article>
+      <article id="opt3"></article>
+    </section>
+
+  </section>
+
+  <script>
+    const d = document;
+    let $opt = d.getElementById("opt");
+    let $opt1 = d.getElementById("opt1");
+    let $opt2 = d.getElementById("opt2");
+    let $opt3 = d.getElementById("opt3");
+    let $parrafo = d.getElementById("parrafo");
+    let $texto = d.getElementById("texto");
+
+
+    const mover = () => {
+      if ($opt3) {
+        let $img = d.createElement("img");
+        $img.setAttribute("src", "/images/pikachu.jpg");
+        $img.setAttribute("width", "144px");
+        $img.setAttribute("height", "196px");
+        $img.innerHTML = $opt.appendChild($img);
+        $parrafo.style.display = "none";
+        $img.attr('disabled', true)
+        $img.setAttribute("disabled", true)
+        $texto.innerHTML = `
+    <h2>🙌<i>Felicidades tu respuesta es correcta</i>🥳</h2>
+    `;
+        setTimeout(() => {
+          window.location.href = "nidoran.html";
+        }, 3000);
+      }
+    };
+
+    const incorrecto = () => {
+      if ($opt1 || $opt2) {
+        $texto.innerHTML =
+          `
+        <h2>😟<i>Incorrecto vuelve a intentarlo</i>😢</h2>
+      `
+        setTimeout(() => {
+          window.location.href = "pikachu.html"
+        }, 2000);
+
+      }
+    };
+
+    $opt1.addEventListener("click", incorrecto, true);
+    $opt2.addEventListener("click", incorrecto, true);
+    $opt3.addEventListener("click", mover, true);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+svg
+rect x=0 y=0 width=300 height=500 fill=#eee
+text
+album PolitiGames
+/text
+text
+[pp]
+/text
+text
+[nombre] [apellido]
+/text
+circle x=250 y=50 fill=blue r=30
+/circle
+text
+[numero_candidatura]
+/text
+/svg
+
+crear diagramación de una lámina
